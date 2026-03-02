@@ -1,16 +1,7 @@
 import { Router } from 'express';
 import { z } from 'zod';
-import rateLimit from 'express-rate-limit';
 
 const router = Router();
-
-const contactLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5,
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: { success: false, message: 'Too many requests. Please try again later.' },
-});
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
@@ -18,7 +9,7 @@ const contactSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters').max(2000),
 });
 
-router.post('/', contactLimiter, (req, res) => {
+router.post('/', (req, res) => {
   const result = contactSchema.safeParse(req.body);
 
   if (!result.success) {
