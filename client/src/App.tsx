@@ -5,7 +5,6 @@ import ScallopDivider from './components/ui/ScallopDivider';
 import Hero from './sections/Hero';
 import Stats from './sections/Stats';
 import Services from './sections/Services';
-import Projects from './sections/Projects';
 import Process from './sections/Process';
 import Comparison from './sections/Comparison';
 import Testimonials from './sections/Testimonials';
@@ -59,14 +58,8 @@ export default function App() {
         {/* Services – cream */}
         <Services />
 
-        {/* cream → blush */}
-        <ScallopDivider fromColor="#FFF8F2" toColor="#FFE4E4" />
-
-        {/* Projects – blush */}
-        <Projects />
-
-        {/* blush → butter */}
-        <ScallopDivider fromColor="#FFE4E4" toColor="#FEF3C7" />
+        {/* cream → butter */}
+        <ScallopDivider fromColor="#FFF8F2" toColor="#FEF3C7" />
 
         {/* Process – butter */}
         <Process />
