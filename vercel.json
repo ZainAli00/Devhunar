@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter client build",
-  "outputDirectory": "client/dist",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api" },
     { "source": "/(.*)",       "destination": "/index.html" }
