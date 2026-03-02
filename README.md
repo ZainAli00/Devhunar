@@ -18,7 +18,6 @@ pnpm dev
 ```
 
 - Client: http://localhost:5173
-- Server: http://localhost:4000
 
 ## Structure
 
