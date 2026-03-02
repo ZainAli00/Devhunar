@@ -1,16 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-import api from '../lib/api';
-import type { Project, ApiResponse } from '../types';
+import { projects } from '../data/projects';
+import type { Project } from '../types';
 
-async function fetchProjects(): Promise<Project[]> {
-  const { data } = await api.get<ApiResponse<Project[]>>('/projects');
-  return data.data;
-}
-
-export function useProjects() {
-  return useQuery({
-    queryKey: ['projects'],
-    queryFn: fetchProjects,
-    staleTime: 5 * 60 * 1000,
-  });
+export function useProjects(): { data: Project[]; isLoading: false; isError: false } {
+  return { data: projects, isLoading: false, isError: false };
 }
