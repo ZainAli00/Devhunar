@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../lib/api';
 import type { Testimonial, ApiResponse } from '../types';
 
 async function fetchTestimonials(): Promise<Testimonial[]> {
-  const { data } = await axios.get<ApiResponse<Testimonial[]>>('/api/testimonials');
+  const { data } = await api.get<ApiResponse<Testimonial[]>>('/testimonials');
   return data.data;
 }
 

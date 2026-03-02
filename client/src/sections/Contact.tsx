@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import axios from 'axios';
+import api from '../lib/api';
 import Section from '../components/ui/Section';
 import Sticker from '../components/ui/Sticker';
 
@@ -52,7 +53,7 @@ export default function Contact() {
     }
     setStatus('loading');
     try {
-      const { data } = await axios.post('/api/contact', form);
+      const { data } = await api.post('/contact', form);
       setServerMsg(data.message ?? 'Message sent!');
       setStatus('success');
       setForm({ name: '', email: '', message: '' });

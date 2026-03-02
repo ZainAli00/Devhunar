@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../lib/api';
 import type { Project, ApiResponse } from '../types';
 
 async function fetchProjects(): Promise<Project[]> {
-  const { data } = await axios.get<ApiResponse<Project[]>>('/api/projects');
+  const { data } = await api.get<ApiResponse<Project[]>>('/projects');
   return data.data;
 }
 
